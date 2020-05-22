@@ -1,0 +1,16 @@
+<%= form_for([@todo_list,@todo_item]) do |f| %>
+
+
+
+  <div class="field">
+    <%= f.label :list_name %><br>
+    <%= f.text_field :list_name %>
+  </div>
+  <div class="field">
+    <%= f.label :list_due_date %><br>
+    <%= f.date_select :list_due_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
