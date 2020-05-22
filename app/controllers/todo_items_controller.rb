@@ -18,7 +18,7 @@ before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
 
   # GET /todo_items/new
   def new
-  @todo_item=todo_list.todo_items.new  
+  @todo_item=@todo_list.todo_items.new  
   end
 
   # GET /todo_items/1/edit
@@ -29,7 +29,7 @@ before_action :set_todo_item, only: [:show, :edit, :update, :destroy]
   # POST /todo_items.json
   def create
   
-    @todo_item=todo_list.todo_items.new(todo_item_params)
+    @todo_item=@todo_list.todo_items.new(todo_item_params)
   
 
     respond_to do |format|

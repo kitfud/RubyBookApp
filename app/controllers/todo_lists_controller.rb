@@ -1,5 +1,5 @@
 class TodoListsController < ApplicationController
-  before_action :set_todo_list, only: [:show,:create, :edit, :update, :destroy]
+  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
 
   # GET /todo_lists
   # GET /todo_lists.json
@@ -29,7 +29,7 @@ class TodoListsController < ApplicationController
 
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to todo_list_path(@todo_list), notice: 'Todo list was successfully created.' }
+        format.html { redirect_to @todo_list, notice: 'Todo list was successfully created.' }
         format.json { render :show, status: :created, location: @todo_list }
       else
         format.html { render :new }
@@ -65,7 +65,7 @@ class TodoListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list
-       @todo_list = TodoList.find(params[:id])
+       @todo_list = current_user.todo_lists.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
